@@ -7,12 +7,6 @@ import { PlayersModule } from './players/players.module';
     PlayersModule,
     MongooseModule.forRoot(
       'mongodb+srv://msenaa:jFD9Tz3kH0wXZEpI@cluster0.jfvdtla.mongodb.net/?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-      },
     ),
   ],
   controllers: [],

@@ -9,5 +9,5 @@ export const PlayerSchema = new mongoose.Schema(
     rankingPosition: Number,
     photoUrl: String,
   },
-  { timestamps: true, collection: 'players' },
+  { timestamps: true, collection: 'Player' },
 );
