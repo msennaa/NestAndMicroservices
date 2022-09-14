@@ -18,9 +18,6 @@ export class PlayersService {
   async createAndUpdatePlayers(createPlayerDto: createPlayerDto) {
     const { email } = createPlayerDto;
 
-    // const foundPlayer = await this.players.find(
-    //   (player) => player.email === email,
-    // );
     const foundPlayer = await this.playerModel.findOne({ email }).exec();
 
     if (foundPlayer) {
@@ -46,33 +43,11 @@ export class PlayersService {
 
   async deletePlayer(email: string): Promise<void> {
     return await this.playerModel.remove({ email }).exec();
-    // const foundPlayer = await this.players.find(
-    //   (player) => player.email === email,
-    // );
-    // if (!foundPlayer) {
-    //   throw new NotFoundException(`Player with email ${email} not found`);
-    // }
-    // this.players = this.players.filter(
-    //   (player) => player.email !== foundPlayer.email,
-    // );
   }
 
   private async create(createPlayerDto: createPlayerDto): Promise<Player> {
     const createdPlayer = new this.playerModel(createPlayerDto);
     return await createdPlayer.save();
-
-    // const { name, email, phoneNumber } = createPlayerDto;
-    // const player: Player = {
-    //   _id: uuidv4(),
-    //   name,
-    //   phoneNumber,
-    //   email,
-    //   ranking: 'A',
-    //   rankingPosition: 2,
-    //   photoUrl: 'www.google.com.br',
-    // };
-    // this.logger.log(`criaJogadorDto ${JSON.stringify(player)}`);
-    // this.players.push(player);
   }
 
   private async update(createPlayerDto: createPlayerDto): Promise<Player> {

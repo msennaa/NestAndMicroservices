@@ -3,7 +3,7 @@ import { createPlayerDto } from './dto/createPlayer.dto';
 import { Player } from './interfaces/players.interface';
 import { PlayersService } from './players.service';
 
-@Controller('api/v1/players')
+@Controller('players')
 export class PlayersController {
   constructor(private readonly playersService: PlayersService) {}
 
